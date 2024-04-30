@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BusDate{% endblock %}
+
+{% block body %}
+    <h1>Edit BusDate</h1>
+
+    {{ include('bus_date/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_bus_date_index') }}">back to list</a>
+
+    {{ include('bus_date/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BusDate{% endblock %}
+
+{% block body %}
+    <h1>Create new BusDate</h1>
+
+    {{ include('bus_date/_form.html.twig') }}
+
+    <a href="{{ path('app_bus_date_index') }}">back to list</a>
+{% endblock %}
