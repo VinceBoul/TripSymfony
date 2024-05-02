@@ -48,4 +48,9 @@ class DateEx
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->date->format('d-m-Y');
+    }
 }

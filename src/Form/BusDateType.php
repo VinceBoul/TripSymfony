@@ -8,6 +8,7 @@ use App\Entity\Trajet;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,18 +18,14 @@ class BusDateType extends AbstractType
     {
         $builder
             ->add('placeRestantes')
-            ->add('trajet', EntityType::class, [
-                'class' => Trajet::class,
-                'choice_label' => 'id',
-            ])
             ->add('bus', EntityType::class, [
                 'class' => Bus::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
-            ->add('users', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-                'multiple' => true,
+            ->add('datesEx', CollectionType::class, [
+                'entry_type' => DateExType::class,
+                'allow_add' => true,
+                'allow_delete' => true
             ])
         ;
     }

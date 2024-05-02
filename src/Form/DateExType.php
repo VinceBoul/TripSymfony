@@ -17,10 +17,6 @@ class DateExType extends AbstractType
             ->add('date', null, [
                 'widget' => 'single_text',
             ])
-            ->add('busDate', EntityType::class, [
-                'class' => BusDate::class,
-                'choice_label' => 'id',
-            ])
         ;
     }
 

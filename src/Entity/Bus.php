@@ -24,6 +24,9 @@ class Bus
     #[ORM\OneToMany(targetEntity: BusDate::class, mappedBy: 'bus')]
     private Collection $busDates;
 
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
     public function __construct()
     {
         $this->busDates = new ArrayCollection();
@@ -72,6 +75,18 @@ class Bus
                 $busDate->setBus(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
 
         return $this;
     }

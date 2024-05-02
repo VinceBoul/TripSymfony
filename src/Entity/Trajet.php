@@ -34,7 +34,7 @@ class Trajet
     /**
      * @var Collection<int, BusDate>
      */
-    #[ORM\OneToMany(targetEntity: BusDate::class, mappedBy: 'trajet')]
+    #[ORM\OneToMany(targetEntity: BusDate::class, mappedBy: 'trajet', cascade: ["persist", "remove"])]
     private Collection $busDates;
 
     public function __construct()

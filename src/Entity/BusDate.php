@@ -29,7 +29,7 @@ class BusDate
     /**
      * @var Collection<int, DateEx>
      */
-    #[ORM\OneToMany(targetEntity: DateEx::class, mappedBy: 'busDate')]
+    #[ORM\OneToMany(targetEntity: DateEx::class, mappedBy: 'busDate', cascade: ["persist", "remove"])]
     private Collection $datesEx;
 
     /**
@@ -141,4 +141,10 @@ class BusDate
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getTrajet()->getStartLoc() . ' ' .$this->getTrajet()->getEndLoc() . ' - Bus : '. $this->getBus()->getName();
+    }
+
 }
